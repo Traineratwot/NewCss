@@ -76,7 +76,7 @@ text-align:center;line-height:normal'>Относительное позицио�
 none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
 padding:0cm 5.4pt 0cm 5.4pt'>
 		<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
-text-align:center;line-height:normal'>??? ????????/?????????</p>
+text-align:center;line-height:normal'>Доп. атрибуты/параметры</p>
 	</td>
 </tr>
 <tr style='mso-yfti-irow:6'>
