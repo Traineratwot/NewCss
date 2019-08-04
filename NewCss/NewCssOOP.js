@@ -1,13 +1,13 @@
 'use strict';
 function NewCss(elemSelector) {
 	if (elemSelector == null) {
-		elemSelector = ("[newCss=\"1\"]");
+		elemSelector = ("[data-newCss=\"1\"]");
 	}
 	var elems = $(elemSelector);
 	for (var j = 0; j < elems.length; j++) {
 		var elem = elems[j];
 		var unit = new newCss(elem)
-		var u = $(elem).attr("do");
+		var u = $(elem).attr("do") || $(elem).attr("data-do");
 		switch (u) {
 			case "onblock":
 				unit.onblock();
@@ -78,10 +78,11 @@ class newCss {
 		this.elem.object = elem;
 		if (param.do !== null && param.linkelem !== null) {
 			$.each(param, function (key, value) {
-				$(elem).attr(key.toLowerCase(), value);
+				$(elem).attr("data-"+key.toLowerCase(), value);
 			});
 		} else {
 			$.each($(elem).attr(), function (key, value) {
+				key = key.replace("data-",'').toLowerCase();
 				param[key] = value;
 			});
 		}
@@ -92,8 +93,8 @@ class newCss {
 		this.linkelem = {}
 		if (param.linkelem !== null) {
 			this.linkelem.object = $(this.param.linkelem);
-		} else if ($(this.elem.object).attr("linkelem")) {
-			this.linkelem.object = $(this.elem.object).attr("linkelem");
+		} else if ($(this.elem.object).attr("linkelem") || $(this.elem.object).attr("data-linkelem")) {
+			this.linkelem.object = $(this.elem.object).attr("linkelem") || $(this.elem.object).attr("data-linkelem");
 		} else {
 			this.linkelem = false
 		}
@@ -352,6 +353,7 @@ class newCss {
 				$(this.elem.object).attr("onclick", "d_d(this)");
 			}
 		}
+		$(this.elem.object).css({'user-select': 'none'})
 	}
 	ClickSwitch(elem = null) {
 		$(this.elem.object).attr("onclick", "checkclik(this)");
@@ -466,22 +468,22 @@ function h_s(elem, linkelem = false) {
 }
 
 function checkclik(elem) {
-	var linkelem = $(elem).attr("linkelem");
+	var linkelem = $(elem).attr("linkelem") || $(elem).attr("data-linkelem");
 	if (linkelem == false || linkelem == undefined) {
 		var linkelem = elem
 	}
-	var h = $(elem).attr("cc");
+	var h = $(elem).attr("cc") || $(elem).attr("data-cc");
 	if (h == false || h == undefined) {
-		$(elem).attr("cc", "1");
+		$(elem).attr("data-cc", "1");
 	} else {
 		if (h == "1") {
-			$(elem).attr("cc", "0");
+			$(elem).attr("data-cc", "0");
 		}
 	}
-	var h = $(elem).attr("cc");
+	var h = $(elem).attr("cc") ||  $(elem).attr("data-cc");
 	var classX = GodObj.classX;
-	var class0 = $.trim($(elem).attr("class0"));
-	var class1 = $.trim($(elem).attr("class1"));
+	var class0 = $.trim($(elem).attr("class0")) || $.trim($(elem).attr("data-class0"));
+	var class1 = $.trim($(elem).attr("class1")) || $.trim($(elem).attr("data-class1"));
 	if (classX == class0 || classX == class1) {
 		switch (h) {
 			case "1":
