@@ -5,7 +5,7 @@ style='border-collapse:collapse;mso-yfti-tbllook:1184;mso-padding-alt:0cm 0cm 0c
 	<td width=158 valign=top style='width:118.35pt;border:solid windowtext 1.0pt;
 padding:0cm 5.4pt 0cm 5.4pt'>
 		<p class=MsoNormal align=center style='margin-bottom:0cm;margin-bottom:.0001pt;
-text-align:center;line-height:normal'>Атрибут/параметр</p>
+text-align:center;line-height:normal'>Атрибут(data-)/параметр</p>
 	</td>
 	<td width=465 colspan=2 valign=top style='width:348.9pt;border:solid windowtext 1.0pt;
 border-left:none;padding:0cm 5.4pt 0cm 5.4pt'></td>
