@@ -61,7 +61,8 @@ class newCss {
 			if(elemSelector){
 				this.param.linkelem = elemSelector;
 			}else{
-				this.param.linkelem = window;
+				this.param.linkelem = false;
+				return false
 			}
 		}
 		this.linkelem = {}
@@ -77,6 +78,7 @@ class newCss {
 			this.linkelem.height = $(this.linkelem.object).height()
 			this.linkelem.offset = $(this.linkelem.object).offset()
 		}
+		return true
 	}
 
 	onblock(elem = null) {
