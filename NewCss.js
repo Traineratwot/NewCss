@@ -3,7 +3,7 @@ function NewCss(elemSelector) {
 	if (elemSelector == null) {
 		var elemSelector = ("[data-newCss=\"1\"],[newCss=\"1\"]");
 	}
-	var elems = ($(elemSelector));
+	var elems = $(elemSelector);
 	for (var j = 0; j < elems.length; j++) {
 		var elem = elems[j];
 		var unit = new newCss(elem)
