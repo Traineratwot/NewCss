@@ -8,46 +8,7 @@ function NewCss(elemSelector) {
 		var elem = elems[j];
 		var unit = new newCss(elem)
 		var u = ($(elem).attr("do")) ? $(elem).attr("do") : $(elem).attr("data-do");
-		switch (u) {
-			case "onblock":
-				unit.onblock();
-				break;
-			case "underblock":
-				unit.underblock();
-				break;
-			case "incenter":
-				unit.incenter();
-				break;
-			case "custom":
-				unit.custom();
-				break;
-			case "clear":
-				unit.clear();
-				break;
-			case "aboveblock":
-				unit.aboveblock();
-				break;
-			case "leftblock":
-				unit.leftblock();
-				break;
-			case "rightblock":
-				unit.rightblock();
-				break;
-			case "ClickSwitch":
-				unit.ClickSwitch();
-				break;
-			case "drag_drop":
-				unit.drag_drop();
-				break;
-			case "watermark":
-				unit.watermark();
-				break;
-			case "":
-			case undefined:
-				break;
-			default:
-				console.warn(u + "");
-		}
+		unit[u]()
 	}
 }
 var GodObj = {};
@@ -92,43 +53,7 @@ class newCss {
 		this.elem.height = $(this.elem.object).height();
 		this.linkelem_constract()
 		if (param.do !== null) {
-			switch (param.do) {
-				case "onblock":
-					this.onblock();
-					break;
-				case "underblock":
-					this.underblock();
-					break;
-				case "incenter":
-					this.incenter();
-					break;
-				case "custom":
-					this.custom();
-					break;
-				case "clear":
-					this.clear();
-					break;
-				case "aboveblock":
-					this.aboveblock();
-					break;
-				case "leftblock":
-					this.leftblock();
-					break;
-				case "rightblock":
-					this.rightblock();
-					break;
-				case "ClickSwitch":
-					this.ClickSwitch();
-					break;
-				case "drag_drop":
-					this.drag_drop();
-					break;
-				case "watermark":
-					this.watermark();
-					break;
-				default:
-					break;
-			}
+			this[param.do]();
 		}
 	}
 	linkelem_constract(elemSelector = null){
