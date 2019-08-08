@@ -90,19 +90,7 @@ class newCss {
 		this.elem.offset = $(this.elem.object).offset();
 		this.elem.width = $(this.elem.object).width();
 		this.elem.height = $(this.elem.object).height();
-		this.linkelem = {}
-		if (param.linkelem !== null) {
-			this.linkelem.object = $(this.param.linkelem);
-		} else if ($(this.elem.object).attr("linkelem") || $(this.elem.object).attr("data-linkelem")) {
-			this.linkelem.object = $(this.elem.object).attr("linkelem") || $(this.elem.object).attr("data-linkelem");
-		} else {
-			this.linkelem = false
-		}
-		if (this.linkelem !== false) {
-			this.linkelem.width = $(this.linkelem.object).width()
-			this.linkelem.height = $(this.linkelem.object).height()
-			this.linkelem.offset = $(this.linkelem.object).offset()
-		}
+		linkelem()
 		if (param.do !== null) {
 			switch (param.do) {
 				case "onblock":
@@ -143,7 +131,31 @@ class newCss {
 			}
 		}
 	}
+	linkelem(elemSelector = null){
+		if(!param.linkelem){
+			if(elemSelector){
+				param.linkelem = elemSelector;
+			}else{
+				param.linkelem = window;
+			}
+		}
+		this.linkelem = {}
+		if (param.linkelem !== null) {
+			this.linkelem.object = $(this.param.linkelem);
+		} else if ($(this.elem.object).attr("linkelem") || $(this.elem.object).attr("data-linkelem")) {
+			this.linkelem.object = $(this.elem.object).attr("linkelem") || $(this.elem.object).attr("data-linkelem");
+		} else {
+			this.linkelem = false
+		}
+		if (this.linkelem !== false) {
+			this.linkelem.width = $(this.linkelem.object).width()
+			this.linkelem.height = $(this.linkelem.object).height()
+			this.linkelem.offset = $(this.linkelem.object).offset()
+		}
+	}
+
 	onblock(elem = null) {
+		linkelem(elem)
 		if (this.linkelem === false) {
 			return false;
 		}
@@ -171,6 +183,7 @@ class newCss {
 		}
 	}
 	underblock(elem = null) {
+		linkelem(elem)
 		if (this.linkelem === false) {
 			return false;
 		}
@@ -195,6 +208,7 @@ class newCss {
 		}
 	}
 	aboveblock(elem = null) {
+		linkelem(elem)
 		if (this.linkelem === false) {
 			return false;
 		}
@@ -221,6 +235,7 @@ class newCss {
 		}
 	}
 	leftblock(elem = null) {
+		linkelem(elem)
 		if (this.linkelem === false) {
 			return false;
 		}
@@ -245,6 +260,7 @@ class newCss {
 		}
 	}
 	rightblock(elem = null) {
+		linkelem(elem)
 		if (this.linkelem === false) {
 			return false;
 		}
@@ -269,6 +285,7 @@ class newCss {
 		}
 	}
 	incenter(elem = null) {
+		linkelem(elem)
 		if (this.linkelem === false) {
 			return false;
 		}
@@ -301,6 +318,7 @@ class newCss {
 		}
 	}
 	custom(elem = null) {
+		linkelem(elem)
 		if (this.linkelem === false) {
 			return false;
 		}
@@ -338,6 +356,7 @@ class newCss {
 		}
 	}
 	drag_drop(elem = null) {
+		linkelem(elem)
 		if (this.param.linkelem) {
 			var hold = this.param.hold;
 			if (hold == "1") {
@@ -356,6 +375,7 @@ class newCss {
 		$(this.elem.object).css({'user-select': 'none'})
 	}
 	ClickSwitch(elem = null) {
+		linkelem(elem)
 		$(this.elem.object).attr("onclick", "checkclik(this)");
 		var linkelem = $(this.elem.object).attr("linkelem");
 		if (linkelem == false || linkelem == undefined) {
@@ -365,6 +385,7 @@ class newCss {
 		GodObj.classX = classX;
 	}
 	watermark(elem = null) {
+		linkelem(elem)
 		var ok = $(this.elem.object).attr('ok');
 		if (ok != true) {
 			var watermark = this.param.watermark;
@@ -375,6 +396,9 @@ class newCss {
 			$(this.elem.object).attr('src', watermark);
 			$(this.elem.object).attr('ok', "1");
 		}
+	}
+	clear() {
+		$(this.elem.object).removeAttr("style");
 	}
 }
 function d_d(elem, linkelem = false) {
@@ -505,11 +529,4 @@ function checkclik(elem) {
 				break;
 		}
 	}
-}
-
-function clear(elem) {
-	$(elem).removeAttr("style");
-}
-function getFnName(fn) {
-	return fn.toString().match(/function ([^(]*)\(/)[1];
 }
