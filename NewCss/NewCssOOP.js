@@ -90,7 +90,7 @@ class newCss {
 		this.elem.offset = $(this.elem.object).offset();
 		this.elem.width = $(this.elem.object).width();
 		this.elem.height = $(this.elem.object).height();
-		linkelem()
+		this.linkelem()
 		if (param.do !== null) {
 			switch (param.do) {
 				case "onblock":
@@ -385,16 +385,15 @@ class newCss {
 		GodObj.classX = classX;
 	}
 	watermark(elem = null) {
-		linkelem(elem)
-		var ok = $(this.elem.object).attr('ok');
-		if (ok != true) {
+		var ok = $(this.elem.object).attr('data-ok');
+		if (!ok) {
 			var watermark = this.param.watermark;
 			var img = $(this.elem.object).attr('src');
 			$(this.elem.object).css({
 				"background-image": "url(" + img + ")"
 			});
 			$(this.elem.object).attr('src', watermark);
-			$(this.elem.object).attr('ok', "1");
+			$(this.elem.object).attr('data-ok', "1");
 		}
 	}
 	clear() {

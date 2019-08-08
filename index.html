@@ -1,0 +1,123 @@
+<head>
+	<!-- Автор Traineratwot@yandex.ru -->
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src="NewCssOOP.js"></script>
+	<style>
+		#a {
+			width: 100px;
+			height: 100px;
+			background-color: rgba(2, 255, 0, 0.2);
+			margin: 150px;
+		}
+
+		#b {
+			height: 50px;
+			background-color: rgba(255, 255, 0, 0.2);
+		}
+
+		#c {
+			height: 50px;
+			background-color: rgba(255, 5, 0, 0.2);
+		}
+
+		#p {
+			height: 50px;
+			background-color: rgba(255, 5, 0, 0.2);
+		}
+
+		#i {
+			width: 50px;
+			background-color: rgba(255, 5, 0, 0.2);
+		}
+
+		#r {
+			width: 50px;
+			background-color: rgba(255, 5, 0, 0.2);
+		}
+
+		#y {
+			height: 20px;
+			width: 20px;
+			background-color: rgba(0, 0, 140, 0.4);
+		}
+
+		#o {
+			height: 30px;
+			width: 30px;
+			background-color: rgba(155, 45, 0, 0.2);
+		}
+
+		#х {
+			height: 30px;
+			background-color: rgba(0, 255, 255, 0.2);
+		}
+
+		.a {
+			text-align: center;
+			color: #d93600;
+		}
+
+		.jopa {
+			top: 0;
+			position: relative;
+			left: -100px !important;
+		}
+
+		.pisia {
+			top: 0;
+			position: relative;
+			left: 0 !important;
+		}
+	</style>
+</head>
+
+<body id="wrap" style="position:absolute;top:0; width:100%; height:100%;overflow:hidden;">
+	<div style="float:right; width:50%;height:99%;background-color:rgba(2, 255, 0, 0.2);">
+		<iframe src="manual.html" style="width:100%;height:100%;"></iframe>
+	</div>
+	<div id="a" class="a" newCss="1" do="drag_drop" linkelem="#y" hold="1">drag_drop</div>
+
+	<div id="b" class="a" newCss="1" Zindex="-10" linkelem="#a" do="onblock"><br>onblock</div>
+
+	<div id="c" class="a">under&shy;block</div>
+
+	<div id="p" class="a" newCss="1" do="aboveblock" linkelem="#a">above&shy;block</div>
+
+	<div id="i" class="a" newCss="1" do="leftblock" linkelem="#a">left&shy;block</div>
+
+	<div id="r" class="a" newCss="1" do="rightblock" linkelem="#a">right&shy;block</div>
+
+	<div id="y" class="a" newCss="1" do="incenter" linkelem="#a">in&shy;cen&shy;ter</div>
+
+	<div id="o" class="a" newCss="1" do="custom" top="-50" left="0" linkelem="#a">555</div>
+
+	<div newCss="1" do="aboveblock" linkelem="#p">
+		<div id="х" class="a" newCss="1" do="ClickSwitch" class0="jopa" class1="pisia" linkelem="#a">ClickSwitch</div>
+	</div>
+
+	<img style="position:absolute;top: 0px;z-index: -1;" src="img/02.jpg" newCss="1" do="watermark"
+		watermark="img/watermark.png" width="600" height="250" border="0" alt="" />
+
+
+	<div id="adres2map" style="position: absolute; width: 300px;height: 300px; background-color: tomato;">
+		<div newcss="1" do="drag_drop" hold="1" linkelem="#adres2map"
+			style="position: absolute;width: 300px;height: 30px;"><span style="position:absolute; right:0;"
+				class="X"></span></div>
+		<p id="min_map" style="width: 300px;height: 290px;bottom:10px;"></p>
+	</div>
+
+
+	<input type="button" value="Push me" onclick="NewCss()" newCss="1" do="underblock" linkelem="#c" />
+</body>
+<script>
+	unit = new newCss('#c', {
+		'do': 'underblock',
+		'linkelem': '#a',
+		'newcss': 1
+	})
+	console.time("Execution time took");
+	$(document).ready(NewCss());
+	console.timeEnd("Execution time took");
+</script>
