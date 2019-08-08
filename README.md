@@ -188,7 +188,7 @@
 	</tbody>
 </table>
 <H1>Подключение</h1>
-<textarea rows="15" style="width:99%;"> 
+```html
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="NewCss.js"></script>
 <script>
@@ -201,4 +201,5 @@ unit = new newCss('#c', {
 		'linkelem': '#a',
 	})
 </script>
+```
 </textarea>
