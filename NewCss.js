@@ -98,7 +98,7 @@ class newCss {
 			"height": this.linkelem.height,
 			"z-index": this.param.zindex
 		});
-		if ($(this.elem.object).attr("createrulle") == "1") {
+		if (this.param.createrulle) {
 			var apo = $(this.elem.object)[0].tagName + "#" + $(this.elem.object)[0].id + "." + $(this.elem.object)[0].className;
 			var style = apo + "{/*" + this.param.do + "*/top:" + this.linkelem.offset.top + "px ;left:" + this.linkelem.offset.left + "px;width:" + this.linkelem.width + "px;height:" + this.linkelem.height + "px;z-index:" + Zindex;
 			if ($('head style').length > 0) {
@@ -123,7 +123,7 @@ class newCss {
 		$(this.elem.object).css({
 			"width": this.linkelem.width + "px"
 		});
-		if ($(this.elem.object).attr("createrulle") == "1") {
+		if (this.param.createrulle) {
 			var apo = $(this.elem.object)[0].tagName + "#" + $(this.elem.object)[0].id + "." + $(this.elem.object)[0].className;
 			var style = apo + "{/*" + this.param.do + "*/top:" + top + "px ;left:" + this.linkelem.offset.left + "px ;width:" + this.linkelem.width + "px";
 			if ($('head style').length > 0) {
@@ -150,7 +150,7 @@ class newCss {
 		$(this.elem.object).css({
 			"width": this.linkelem.width
 		});
-		if ($(this.elem.object).attr("createrulle") == "1") {
+		if (this.param.createrulle) {
 			var apo = $(this.elem.object)[0].tagName + "#" + $(this.elem.object)[0].id + "." + $(this.elem.object)[0].className;
 			var style = apo + "{/*" + this.param.do + "*/top:" + top + "px ;left:" + this.linkelem.offset.left + "px;width:" + this.linkelem.width + "px";
 			if ($('head style').length > 0) {
@@ -175,7 +175,7 @@ class newCss {
 			"top": this.linkelem.offset.top,
 			"left": left
 		});
-		if ($(this.elem.object).attr("createrulle") == "1") {
+		if (this.param.createrulle) {
 			var apo = $(this.elem.object)[0].tagName + "#" + $(this.elem.object)[0].id + "." + $(this.elem.object)[0].className;
 			var style = apo + "{/*" + this.param.do + "*/top:" + this.linkelem.offset.top + "px ;left:" + left + "px;height:" + this.linkelem.height + "px";
 			if ($('head style').length > 0) {
@@ -200,7 +200,7 @@ class newCss {
 			"top": this.linkelem.offset.top,
 			"left": left
 		});
-		if ($(this.elem.object).attr("createrulle") == "1") {
+		if (this.param.createrulle) {
 			var apo = $(this.elem.object)[0].tagName + "#" + $(this.elem.object)[0].id + "." + $(this.elem.object)[0].className;
 			var style = apo + "{/*" + this.param.do + "*/top:" + this.linkelem.offset.top + "px ;left:" + left + "px;height:" + this.linkelem.height + "px";
 			if ($('head style').length > 0) {
@@ -223,7 +223,7 @@ class newCss {
 		var height2 = $(this.elem.object).height();
 		var top = object.top + (height1 / 2) - (height2 / 2);
 		var left = object.left + (width1 / 2) - (width2 / 2);
-		if ($(this.elem.object).attr("createrulle") == "1") {
+		if (this.param.createrulle) {
 			var apo = $(this.elem.object)[0].tagName + "#" + $(this.elem.object)[0].id + "." + $(this.elem.object)[0].className;
 			var style = apo + "{/*" + this.param.do + "*/top:" + top + "px;left:" + left + "px";
 			if ($('head style').length > 0) {
@@ -271,7 +271,7 @@ class newCss {
 			"top": top,
 			"left": left
 		});
-		if ($(this.elem.object).attr("createrulle") == "1") {
+		if (this.param.createrulle) {
 			var apo = $(this.elem.object)[0].tagName + "#" + $(this.elem.object)[0].id + "." + $(this.elem.object)[0].className;
 			var style = apo + "{/*" + this.param.do + "*/ top:" + top + "px ;left:" + left + "px";
 			if ($('head style').length > 0) {
