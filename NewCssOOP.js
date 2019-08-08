@@ -1,13 +1,13 @@
 'use strict';
 function NewCss(elemSelector) {
 	if (elemSelector == null) {
-		elemSelector = ("[data-newCss=\"1\"]");
+		var elemSelector = ("[data-newCss=\"1\"],[newCss=\"1\"]");
 	}
-	var elems = $(elemSelector);
+	var elems = ($(elemSelector));
 	for (var j = 0; j < elems.length; j++) {
 		var elem = elems[j];
 		var unit = new newCss(elem)
-		var u = $(elem).attr("do") || $(elem).attr("data-do");
+		var u = ($(elem).attr("do")) ? $(elem).attr("do") : $(elem).attr("data-do");
 		switch (u) {
 			case "onblock":
 				unit.onblock();
@@ -90,7 +90,7 @@ class newCss {
 		this.elem.offset = $(this.elem.object).offset();
 		this.elem.width = $(this.elem.object).width();
 		this.elem.height = $(this.elem.object).height();
-		this.linkelem()
+		this.linkelem_constract()
 		if (param.do !== null) {
 			switch (param.do) {
 				case "onblock":
@@ -131,7 +131,7 @@ class newCss {
 			}
 		}
 	}
-	linkelem(elemSelector = null){
+	linkelem_constract(elemSelector = null){
 		if(!this.param.linkelem){
 			if(elemSelector){
 				this.param.linkelem = elemSelector;
@@ -140,7 +140,7 @@ class newCss {
 			}
 		}
 		this.linkelem = {}
-		if (param.linkelem !== null) {
+		if (this.param.linkelem !== null) {
 			this.linkelem.object = $(this.param.linkelem);
 		} else if ($(this.elem.object).attr("linkelem") || $(this.elem.object).attr("data-linkelem")) {
 			this.linkelem.object = $(this.elem.object).attr("linkelem") || $(this.elem.object).attr("data-linkelem");
@@ -155,7 +155,7 @@ class newCss {
 	}
 
 	onblock(elem = null) {
-		linkelem(elem)
+		this.linkelem_constract(elem)
 		if (this.linkelem === false) {
 			return false;
 		}
@@ -183,7 +183,7 @@ class newCss {
 		}
 	}
 	underblock(elem = null) {
-		linkelem(elem)
+		this.linkelem_constract(elem)
 		if (this.linkelem === false) {
 			return false;
 		}
@@ -208,7 +208,7 @@ class newCss {
 		}
 	}
 	aboveblock(elem = null) {
-		linkelem(elem)
+		this.linkelem_constract(elem)
 		if (this.linkelem === false) {
 			return false;
 		}
@@ -235,7 +235,7 @@ class newCss {
 		}
 	}
 	leftblock(elem = null) {
-		linkelem(elem)
+		this.linkelem_constract(elem)
 		if (this.linkelem === false) {
 			return false;
 		}
@@ -260,7 +260,7 @@ class newCss {
 		}
 	}
 	rightblock(elem = null) {
-		linkelem(elem)
+		this.linkelem_constract(elem)
 		if (this.linkelem === false) {
 			return false;
 		}
@@ -285,7 +285,7 @@ class newCss {
 		}
 	}
 	incenter(elem = null) {
-		linkelem(elem)
+		this.linkelem_constract(elem)
 		if (this.linkelem === false) {
 			return false;
 		}
@@ -318,7 +318,7 @@ class newCss {
 		}
 	}
 	custom(elem = null) {
-		linkelem(elem)
+		this.linkelem_constract(elem)
 		if (this.linkelem === false) {
 			return false;
 		}
@@ -356,7 +356,7 @@ class newCss {
 		}
 	}
 	drag_drop(elem = null) {
-		linkelem(elem)
+		this.linkelem_constract(elem)
 		if (this.param.linkelem) {
 			var hold = this.param.hold;
 			if (hold == "1") {
@@ -375,7 +375,7 @@ class newCss {
 		$(this.elem.object).css({'user-select': 'none'})
 	}
 	ClickSwitch(elem = null) {
-		linkelem(elem)
+		this.linkelem_constract(elem)
 		$(this.elem.object).attr("onclick", "checkclik(this)");
 		var linkelem = $(this.elem.object).attr("linkelem");
 		if (linkelem == false || linkelem == undefined) {
