@@ -1,4 +1,5 @@
-<p># NewCss ![](https://raw.githubusercontent.com/Traineratwot/NewCss/master/favicon.ico)</p>
+# NewCss
+![](https://raw.githubusercontent.com/Traineratwot/NewCss/master/favicon.ico)
 
 <table border="1" cellpadding="0" cellspacing="0">
 	<tbody>
@@ -188,6 +189,8 @@
 	</tbody>
 </table>
 <H1>Подключение</h1>
+
+
 ```html
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="NewCss.js"></script>
@@ -202,4 +205,4 @@ unit = new newCss('#c', {
 	})
 </script>
 ```
-</textarea>
+
