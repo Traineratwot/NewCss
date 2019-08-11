@@ -216,13 +216,8 @@ class newCss {
 		if (this.linkelem === false) {
 			return false;
 		}
-		var object = $(this.linkelem.object).offset();
-		var width1 = $(this.linkelem.object).width();
-		var height1 = $(this.linkelem.object).height();
-		var width2 = $(this.elem.object).width();
-		var height2 = $(this.elem.object).height();
-		var top = object.top + (height1 / 2) - (height2 / 2);
-		var left = object.left + (width1 / 2) - (width2 / 2);
+		var top = this.linkelem.offset.top + (this.linkelem.height / 2) - (this.elem.height / 2);
+		var left = this.linkelem.offset.left + (this.linkelem.width / 2) - (this.elem.width / 2);
 		if (this.param.createrulle) {
 			var apo = $(this.elem.object)[0].tagName + "#" + $(this.elem.object)[0].id + "." + $(this.elem.object)[0].className;
 			var style = apo + "{/*" + this.param.do + "*/top:" + top + "px;left:" + left + "px";
